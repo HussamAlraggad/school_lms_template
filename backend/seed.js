@@ -11,7 +11,7 @@ async function seed() {
     console.log('🌱 Seeding database...\n');
     
     // Auth as superuser (PocketBase v0.23+ uses _superusers collection)
-    await pb.collection('_superusers').authWithPassword('test_super@test.edu.jo', 'test_super@test.edu.jo');
+    await pb.collection('_superusers').authWithPassword('hussam_super_user@pocket.com', 'hussam_super_user');
     console.log('✓ Authenticated as superuser\n');
     
     // Create subjects

@@ -7,8 +7,8 @@
       "enabled": true,
       "environment": {
         "POCKETBASE_URL": "http://127.0.0.1:8090",
-        "POCKETBASE_ADMIN_EMAIL": "admin@school.edu",
-        "POCKETBASE_ADMIN_PASSWORD": "Admin@12345"
+        "POCKETBASE_ADMIN_EMAIL": "hussam_super_user@pocket.com",
+        "POCKETBASE_ADMIN_PASSWORD": "hussam_super_user"
       }
     }
   }
