@@ -1,0 +1,50 @@
+{
+  "name": "frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "NODE_OPTIONS='--max-old-space-size=4096 --expose-gc' next dev --turbopack -H 0.0.0.0",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:ci": "jest --ci --coverage --maxWorkers=2"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.99.0",
+    "@tiptap/extension-image": "^3.20.5",
+    "@tiptap/extension-link": "^3.20.5",
+    "@tiptap/extension-text-align": "^3.20.5",
+    "@tiptap/extension-underline": "^3.20.5",
+    "@tiptap/pm": "^3.20.5",
+    "@tiptap/react": "^3.20.5",
+    "@tiptap/starter-kit": "^3.20.5",
+    "@types/dompurify": "^3.0.5",
+    "dompurify": "^3.3.3",
+    "lucide-react": "^1.7.0",
+    "next": "16.2.1",
+    "pocketbase": "^0.26.8",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.1",
+    "jest": "^30.3.0",
+    "jest-environment-jsdom": "^30.3.0",
+    "tailwindcss": "^4",
+    "ts-jest": "^29.4.9",
+    "typescript": "^5"
+  }
+}

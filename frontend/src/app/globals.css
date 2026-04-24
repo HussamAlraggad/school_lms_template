@@ -1,0 +1,222 @@
+@import "tailwindcss";
+
+/* ─── Design Tokens ─────────────────────────────────────────────────────── */
+
+@theme inline {
+  /* Typography */
+  --font-sans: var(--font-cairo, ui-sans-serif, system-ui, sans-serif);
+
+  /* Surface palette — warm ivory base */
+  --color-surface:        #faf8f5;
+  --color-surface-card:   #ffffff;
+  --color-surface-sunken: #f2ede8;
+  --color-surface-hover:  #ede8e2;
+
+  /* Border */
+  --color-border:         #e0d9d0;
+  --color-border-subtle:  #ede8e2;
+
+  /* Ink (text) */
+  --color-ink:            #1c1917;
+  --color-ink-secondary:  #6b6460;
+  --color-ink-placeholder:#a89e97;
+  --color-ink-disabled:   #c9c0b8;
+  --color-ink-inverse:    #ffffff;
+
+  /* Accent — deep violet */
+  --color-accent:         #5b21b6;
+  --color-accent-hover:   #4c1d95;
+  --color-accent-subtle:  #ede9fe;
+  --color-accent-text:    #4c1d95;
+
+  /* Status */
+  --color-danger:         #dc2626;
+  --color-danger-subtle:  #fef2f2;
+  --color-danger-text:    #b91c1c;
+  --color-success:        #16a34a;
+  --color-success-subtle: #f0fdf4;
+  --color-success-text:   #15803d;
+  --color-warning:        #d97706;
+  --color-warning-subtle: #fffbeb;
+  --color-warning-text:   #b45309;
+
+  /* Role colors */
+  --color-role-admin-bg:      #ede9fe;
+  --color-role-admin-text:    #4c1d95;
+  --color-role-admin-bold:    #5b21b6;
+  --color-role-admin-card:    #f5f3ff;
+
+  --color-role-teacher-bg:    #ccfbf1;
+  --color-role-teacher-text:  #0f766e;
+  --color-role-teacher-bold:  #0d9488;
+  --color-role-teacher-card:  #f0fdfa;
+
+  --color-role-student-bg:    #fed7aa;
+  --color-role-student-text:  #c2410c;
+  --color-role-student-bold:  #ea580c;
+  --color-role-student-card:  #fff7ed;
+
+  /* Stat card icon palette */
+  --color-stat-1-bg:   #dbeafe;
+  --color-stat-1-icon: #2563eb;
+  --color-stat-2-bg:   #dcfce7;
+  --color-stat-2-icon: #16a34a;
+  --color-stat-3-bg:   #fce7f3;
+  --color-stat-3-icon: #db2777;
+  --color-stat-4-bg:   #fef9c3;
+  --color-stat-4-icon: #ca8a04;
+
+  /* Radii */
+  --radius-sm:   4px;
+  --radius-md:   10px;
+  --radius-lg:   14px;
+  --radius-xl:   20px;
+  --radius-2xl:  28px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-xs:  0 1px 2px 0 rgb(28 25 23 / 0.06);
+  --shadow-sm:  0 2px 6px -1px rgb(28 25 23 / 0.09), 0 1px 2px -1px rgb(28 25 23 / 0.05);
+  --shadow-md:  0 6px 16px -4px rgb(28 25 23 / 0.12), 0 2px 6px -2px rgb(28 25 23 / 0.06);
+  --shadow-lg:  0 16px 32px -8px rgb(28 25 23 / 0.14), 0 4px 8px -4px rgb(28 25 23 / 0.06);
+}
+
+/* ─── Base Reset ─────────────────────────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  scroll-behavior: auto;
+}
+
+body {
+  height: 100%;
+  background-color: var(--color-surface);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: start;
+}
+
+/* ─── Subtle dot-grid background on the page surface ────────────────────── */
+/* Only applied to the main page surface, not cards */
+.bg-surface-dotted {
+  background-color: var(--color-surface);
+  background-image: radial-gradient(circle, #d4ccc4 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* ─── RTL / LTR text alignment ───────────────────────────────────────────── */
+
+[dir="rtl"],
+[dir="ltr"] {
+  text-align: start;
+}
+
+/* ─── Typography scale ───────────────────────────────────────────────────── */
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--color-ink);
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+/* ─── Focus ring ─────────────────────────────────────────────────────────── */
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────────────────────── */
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: var(--radius-full); }
+::-webkit-scrollbar-thumb:hover { background: var(--color-ink-placeholder); }
+
+/* ─── Stat card color slots (nth-child) ──────────────────────────────────── */
+
+.stat-card-group > *:nth-child(1) .stat-icon {
+  background-color: var(--color-stat-1-bg);
+  color: var(--color-stat-1-icon);
+}
+.stat-card-group > *:nth-child(2) .stat-icon {
+  background-color: var(--color-stat-2-bg);
+  color: var(--color-stat-2-icon);
+}
+.stat-card-group > *:nth-child(3) .stat-icon {
+  background-color: var(--color-stat-3-bg);
+  color: var(--color-stat-3-icon);
+}
+.stat-card-group > *:nth-child(4) .stat-icon {
+  background-color: var(--color-stat-4-bg);
+  color: var(--color-stat-4-icon);
+}
+
+/* ─── Rich content typography ────────────────────────────────────────────── */
+
+.rich-content {
+  color: var(--color-ink);
+  font-size: 15px;
+  line-height: 1.7;
+  word-break: break-word;
+}
+
+.rich-content h1 { font-size: 1.6rem; font-weight: 800; margin: 0.9rem 0 0.5rem; line-height: 1.2; }
+.rich-content h2 { font-size: 1.3rem; font-weight: 700; margin: 0.75rem 0 0.4rem; line-height: 1.25; }
+.rich-content h3 { font-size: 1.1rem; font-weight: 700; margin: 0.6rem 0 0.35rem; }
+.rich-content p  { margin: 0.35rem 0; }
+.rich-content strong { font-weight: 700; }
+.rich-content em     { font-style: italic; }
+.rich-content u      { text-decoration: underline; }
+
+.rich-content ul { list-style: disc;    padding-inline-start: 1.5rem; margin: 0.5rem 0; }
+.rich-content ol { list-style: decimal; padding-inline-start: 1.5rem; margin: 0.5rem 0; }
+.rich-content li { margin: 0.25rem 0; }
+
+.rich-content a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.rich-content a:hover { color: var(--color-accent-hover); }
+
+.rich-content img {
+  max-width: 100%;
+  border-radius: var(--radius-lg);
+  margin: 0.75rem 0;
+  display: block;
+}
+
+.rich-content blockquote {
+  border-inline-start: 3px solid var(--color-border);
+  padding-inline-start: 1rem;
+  color: var(--color-ink-secondary);
+  margin: 0.5rem 0;
+  font-style: italic;
+}
+
+.rich-content pre,
+.rich-content code {
+  font-family: ui-monospace, monospace;
+  font-size: 0.875rem;
+  background: var(--color-surface-sunken);
+  border-radius: var(--radius-sm);
+}
+.rich-content pre  { padding: 0.75rem 1rem; overflow-x: auto; margin: 0.5rem 0; }
+.rich-content code { padding: 0.1rem 0.35rem; }
